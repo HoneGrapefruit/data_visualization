@@ -1,3 +1,4 @@
+# pip install -r requirements.txt --- 读文本文件requirements并安装所有依赖项
 import random
 
 import pymysql
@@ -92,7 +93,7 @@ def get_stock_data():
     # 获取查询参数（URL参数，跟在URL之后?后面的参数）
     start = request.args.get('start', '2020-1-1')
     end = request.args.get('end', '2020-12-31')
-    conn = get_mysql_connection(database='stock')
+    conn = get_mysql_connection(database='alibaba')
     x_data, y_data = [], []
     try:
         with conn.cursor(pymysql.cursors.DictCursor) as cursor:
@@ -117,4 +118,4 @@ def get_stock_data():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    app.run(host='127.0.0.1', port=8000, debug=True)
